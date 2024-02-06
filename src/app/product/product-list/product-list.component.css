@@ -1,0 +1,27 @@
+.product-container{
+    position: relative;
+    margin-left: 7rem;
+}
+img{
+    background-size: cover;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+.product-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding: 0.5rem;
+}
+
+
+/* @media(max-width:768px){
+    .search-sort-container{
+        display: flex;
+        flex-direction: column;
+    }
+} */

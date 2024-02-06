@@ -1,0 +1,47 @@
+<div class="text-center" *ngIf="isSpinnerActive == true">
+  <div id="spinner" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+<div class="product-container" *ngIf="products.length>0 else noProduct">
+       
+      <h3>Our Latest Collection</h3>
+
+      <div class="col-8 col-sm-12 d-sm-flex flex-sm-row  gap-sm-3 ">
+        <!-- for search and sort -->
+        <mat-form-field >
+          <input matInput placeholder="Search" (keyup)="applyFilter($event)">
+        </mat-form-field>
+
+        <mat-form-field>
+          
+          <mat-select (selectionChange)="sortProducts($event.value)" placeholder="Sort">
+           
+              <mat-option value="lowToHigh">price: Low To High</mat-option>
+              <mat-option value="highToLow">price: High To Low</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- shows product list -->
+      <div class="product-list">
+
+            <div *ngFor="let productItem of filteredproduct"  >
+
+                <app-product-card    [product]="productItem"  (addToCartClicked)="addToCart($event)">
+                     
+                </app-product-card>
+            </div> 
+
+            <ng-template >
+                 <div >No Data Found</div>
+            </ng-template>
+            
+      </div>
+
+</div>
+<ng-template #noProduct>
+    <div class=" text-center ">
+       {{this.errorMessage}}
+    </div>
+</ng-template>

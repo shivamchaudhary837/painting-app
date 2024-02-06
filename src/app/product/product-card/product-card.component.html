@@ -1,0 +1,10 @@
+<mat-card class="product-card"  >
+    <img mat-card-image src="assets/images/{{product.image_url}}"
+      alt="Photo of a Shiba Inu" [routerLink]="[product.id]">
+      <mat-card-content>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.price| demoPipe:2 | currency:'USD' }}</mat-card-subtitle>
+        <button (click)="addToCart(product.id)" class=" btn btn-primary "> Add To Cart</button>
+      </mat-card-content>
+     
+</mat-card>

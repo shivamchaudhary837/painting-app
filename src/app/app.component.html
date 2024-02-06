@@ -1,0 +1,19 @@
+<div #app_container class="main-div full-height">
+  <!-- Navbar Section -->
+
+  <app-navbar [toggleStorage]="savedToggle"  (toggleEmitter)="enableDarkMode($event)">
+
+  </app-navbar>
+  
+
+  <div class="home-container mt-5 mt-lg-5 ">
+    <!-- 2 heading -->
+    <div class="text-heading ">
+      <h2 class="">Amazing Animal Paintings</h2>
+      <p class="d-none d-sm-block ">Make your home a special place with our beautiful and unique artwork</p>
+    </div>
+
+
+  </div>
+  <router-outlet></router-outlet>
+</div>

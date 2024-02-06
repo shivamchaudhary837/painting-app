@@ -1,0 +1,27 @@
+
+.home-container {
+    position: relative;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.home-container h2{
+    color:darkred;
+    font: 800;
+    font-size: 2rem;
+}
+.home-container p{
+     font: 400;
+     font-size: 1rem;
+}
+.text-heading{
+    padding: 1rem;
+}
+.dark-mode{
+    
+    background: black;
+    color: white;
+}
+.full-height{
+    height: auto;
+}

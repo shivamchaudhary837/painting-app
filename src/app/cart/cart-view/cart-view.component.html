@@ -1,0 +1,26 @@
+<div >
+         <div class="cart-container">
+                <h1>Your Cart</h1>
+                <app-cart-view-card #cartCardComponent  [productList]=" (productCollection$ | async)!">
+
+                </app-cart-view-card>
+
+                <mat-card>
+                  <mat-list >
+                        
+                       <mat-list-item >
+                          <span class="price" matListItemTitle>Total (USD)</span>
+                          <span class="price" matListItemLine>{{totalPrice | currency:'USD'}} </span>
+                       </mat-list-item>
+          
+                       <mat-list-item class="text-right">
+                          <button mat-flat-button (click)="clearCart()">Clear</button>
+                       </mat-list-item>
+          
+                       <mat-list-item class="text-right">
+                          <button (click)="checkOut()" mat-raised-button color="accent">Checkout</button>
+                       </mat-list-item>
+                    </mat-list>
+              </mat-card>
+       </div>
+</div>

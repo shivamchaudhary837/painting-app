@@ -1,0 +1,56 @@
+<div class="container full-height">
+        <h1 class=" fw-bold ">User Profile</h1>
+
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation ">
+
+              <div class="row">
+                <div class="form-floating mb-3 col-4">
+                    <input type="text" class="form-control" id="floatingInput" 
+                    placeholder="name@example.com" required name="firstName" 
+                    formControlName="firstName"> 
+                    <label for="floatingInput">First Name</label>
+                    <div *ngIf="myForm.get('firstName')?.hasError('required') && 
+                        myForm.get('firstName')?.touched"
+                        class="text-danger ">
+                        first name is required.
+                    </div>
+                    <div *ngIf="myForm.get('firstName')?.hasError('minlength') && 
+                    myForm.get('firstName')?.touched" 
+                        class="text-danger ">
+                        first name must be at least 5 characters.
+                    </div>
+                </div>
+                
+
+                <div class="form-floating mb-3 col-4">
+                    <input type="text" class="form-control" id="floatingInput" 
+                    placeholder="name@example.com" required name="lastName" formControlName="lastName"> 
+                    <label for="floatingInput">Last Name</label>
+                    
+                    <div *ngIf="myForm.get('firstName')?.hasError('required') && 
+                        myForm.get('lastName')?.touched"
+                        class="text-danger ">
+                        last name is required.
+                    </div>
+                </div>
+             </div>
+
+             <div class="row">
+                <div class="form-floating mb-3 col-4">
+                    <input type="email" class="form-control" id="floatingInput" 
+                    placeholder="name@example.com" required name="email" formControlName="email"> 
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div *ngIf="myForm.get('email')?.hasError('required') && myForm.get('email')?.touched" 
+                       class="text-danger ">
+                       email is required
+                      </div>
+             </div>
+
+             <div class="row">
+                  <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary ">
+                    Submit
+                  </button>
+             </div>
+        </form>
+</div>

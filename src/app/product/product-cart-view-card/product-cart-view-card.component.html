@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-list >
+        <mat-list-item *ngFor="let item of productList">
+            <div class="d-flex flex-row justify-content-between  ">
+                <div >
+                    <span matListItemTitle>{{item.name}}</span>
+                    <span matListItemLine>{{item.price | currency:'USD'}} </span>
+                </div>
+                <div>
+                    <button (click)="removeProduct.emit(item.id)"  class="btn btn-danger  ">Remove</button>
+                </div>
+           </div>
+             
+         </mat-list-item>
+        
+    </mat-list>
+</mat-card>

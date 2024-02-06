@@ -1,0 +1,14 @@
+img{
+    background-size: cover;
+}
+.product-card{
+    max-width: 200px;
+    transition: transform .2s;
+}
+.product-card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+h3{
+  font-size: 1.5rem;
+}
