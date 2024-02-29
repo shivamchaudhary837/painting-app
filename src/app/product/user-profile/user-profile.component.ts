@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -34,10 +34,20 @@ export class UserProfileComponent implements OnInit{
       
        intitalizeForm(){
             this.myForm=this.fb.group({
-                 firstName:['',[Validators.required,Validators.minLength(5)]],
+                 firstName:['',[Validators.required,Validators.minLength(5),this.noSpaceValidator()]],
                  lastName:['',[Validators.required,Validators.minLength(5)]],
                  email:['',[Validators.required,Validators.email]]
             })
+       }
+
+
+       //Custom Validator for no space between words
+       noSpaceValidator():ValidatorFn{
+          
+        return (control: AbstractControl): { [key: string]: any } | null => {
+               const isValid=(control.value || '').trim().indexOf(' ') === -1;
+               return isValid?null:{noSpaceError:true};  
+            }
        }
        subscribeToFormChanges() {
           // Subscribe to value changes in the form controls

@@ -1,5 +1,6 @@
 <div class="container full-height">
         <h1 class=" fw-bold ">User Profile</h1>
+        <h4  >Custom Validation Implemented in First Name</h4>
 
         <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation ">
 
@@ -18,6 +19,11 @@
                     myForm.get('firstName')?.touched" 
                         class="text-danger ">
                         first name must be at least 5 characters.
+                    </div>
+                    
+                    <div class=" text-danger " *ngIf="myForm.get('firstName')?.hasError('noSpaceError') &&
+                     myForm.get('firstName')?.touched">
+                           First Name does not contain space
                     </div>
                 </div>
                 

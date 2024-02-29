@@ -3,7 +3,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 </div>
-<div class="product-container" *ngIf="products.length>0 else noProduct">
+<div class="product-container" *ngIf="products else noProduct">
        
       <h3>Our Latest Collection</h3>
 
@@ -24,24 +24,23 @@
       </div>
 
       <!-- shows product list -->
-      <div class="product-list">
-
-            <div *ngFor="let productItem of filteredproduct"  >
-
-                <app-product-card    [product]="productItem"  (addToCartClicked)="addToCart($event)">
-                     
-                </app-product-card>
-            </div> 
-
-            <ng-template >
-                 <div >No Data Found</div>
-            </ng-template>
+      <div class="product-list" >
             
+              <div  *ngFor="let productItem of filteredproduct" >
+
+                  <app-product-card    [product]="productItem"  
+                  (addToCartClicked)="addToCart($event)">
+                      
+                  </app-product-card>
+              </div> 
+           
+           
+          
       </div>
 
 </div>
 <ng-template #noProduct>
     <div class=" text-center ">
-       {{this.errorMessage}}
+       hello jpfdfkdj; dfdfd
     </div>
 </ng-template>

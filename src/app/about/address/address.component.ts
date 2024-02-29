@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent {
+     isActive:boolean=false
 
+     onClick(){
+        this.isActive= !this.isActive
+     }
 }
